@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Code, Palette, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Code, Palette, ExternalLink } from "lucide-react";
 
-// Import semua poster
-import Poster1 from '../assets/posters/poster1.png';
-import Poster2 from '../assets/posters/poster2.png';
-import Poster3 from '../assets/posters/poster3.jpg';
-import Poster4 from '../assets/posters/poster4.jpg';
-import Poster5 from '../assets/posters/poster5.jpg';
-import Poster6 from '../assets/posters/poster6.jpg';
+
+import Poster1 from "/src/assets/posters/poster1.png";
+import Poster2 from "/src/assets/posters/poster2.png";
+import Poster3 from "/src/assets/posters/poster3.jpg";
+import Poster4 from "/src/assets/posters/poster4.jpg";
+import Poster5 from "/src/assets/posters/poster5.jpg";
+import Poster6 from "/src/assets/posters/poster6.jpg";
 
 const Projects = () => {
   const [visible, setVisible] = useState(false);
-  const [selectedPoster, setSelectedPoster] = useState(null); // <-- Modal preview
+  const [selectedPoster, setSelectedPoster] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,16 +21,28 @@ const Projects = () => {
       { threshold: 0.2 }
     );
 
-    const element = document.getElementById('projects');
+    const element = document.getElementById("projects");
     if (element) observer.observe(element);
 
     return () => observer.disconnect();
   }, []);
 
   const webProjects = [
-    { title: "Portfolio Website", desc: "Personal portfolio with React & Tailwind CSS", tech: "React, Tailwind" },
-    { title: "E-Commerce Platform", desc: "Full-stack online shopping platform", tech: "React, Node.js" },
-    { title: "Task Manager App", desc: "Productivity app with real-time updates", tech: "React, Firebase" },
+    {
+      title: "Portfolio Website",
+      desc: "Personal portfolio website built with modern UI principles.",
+      tech: "React, Tailwind CSS",
+    },
+    {
+      title: "E-Commerce Platform",
+      desc: "Online shopping platform with product listing and UI design.",
+      tech: "React, Node.js",
+    },
+    {
+      title: "Task Manager App",
+      desc: "Task management app for productivity and workflow tracking.",
+      tech: "React, Firebase",
+    },
   ];
 
   const designPosters = [
@@ -46,21 +58,26 @@ const Projects = () => {
     <section id="projects" className="min-h-screen bg-slate-50 py-20">
       <div className="max-w-7xl mx-auto px-8">
 
-        <h2 className="text-5xl font-bold mb-16 text-center text-slate-800">My Projects</h2>
+        {/* ===== TITLE ===== */}
+        <h2 className="text-5xl font-bold mb-16 text-center text-slate-800">
+          My Projects
+        </h2>
 
-
-        <div className="mb-20">
+        {/* ===== WEB PROJECTS ===== */}
+        <div className="mb-24">
           <h3 className="text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
             <Code className="w-8 h-8 text-blue-600" />
             Web Development
           </h3>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {webProjects.map((project, i) => (
               <div
                 key={i}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
-                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
@@ -68,11 +85,15 @@ const Projects = () => {
                   <Code className="w-16 h-16 text-blue-400" />
                 </div>
 
-                <h4 className="text-xl font-bold text-slate-800 mb-2">{project.title}</h4>
+                <h4 className="text-xl font-bold text-slate-800 mb-2">
+                  {project.title}
+                </h4>
                 <p className="text-slate-600 mb-3">{project.desc}</p>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-slate-500">{project.tech}</span>
+                  <span className="text-sm text-slate-500">
+                    {project.tech}
+                  </span>
                   <ExternalLink className="w-5 h-5 text-blue-600 cursor-pointer hover:text-blue-800" />
                 </div>
               </div>
@@ -80,23 +101,24 @@ const Projects = () => {
           </div>
         </div>
 
-
+        {/* ===== DESIGN POSTERS ===== */}
         <div>
           <h3 className="text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
             <Palette className="w-8 h-8 text-blue-600" />
             Posters & Visual Designs
           </h3>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {designPosters.map((poster, i) => (
               <div
                 key={i}
                 className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
-                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${(i + 3) * 100}ms` }}
               >
-                
                 <div
                   className="w-full h-80 overflow-hidden cursor-pointer"
                   onClick={() => setSelectedPoster(poster)}
@@ -109,28 +131,29 @@ const Projects = () => {
                 </div>
 
                 <div className="p-4">
-                  <p className="text-sm text-slate-500">Click to view full image</p>
+                  <p className="text-sm text-slate-500">
+                    Click to view full image
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* MODAL FULL POSTER */}
+      {/* ===== MODAL PREVIEW ===== */}
       {selectedPoster && (
-  <div
-    className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[999]"
-    onClick={() => setSelectedPoster(null)}
-  >
-    <img
-      src={selectedPoster}
-      alt="Poster Full"
-      className="max-w-screen max-h-screen w-auto h-auto object-contain"
-    />
-  </div>
-)}
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[999]"
+          onClick={() => setSelectedPoster(null)}
+        >
+          <img
+            src={selectedPoster}
+            alt="Poster Full"
+            className="max-w-screen max-h-screen w-auto h-auto object-contain"
+          />
+        </div>
+      )}
     </section>
   );
 };
