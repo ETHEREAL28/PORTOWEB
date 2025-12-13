@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Code, Palette, ExternalLink } from "lucide-react";
 
 
-import Poster1 from "/src/assets/posters/poster1.png";
-import Poster2 from "/src/assets/posters/poster2.png";
-import Poster3 from "/src/assets/posters/poster3.jpg";
-import Poster4 from "/src/assets/posters/poster4.jpg";
-import Poster5 from "/src/assets/posters/poster5.jpg";
-import Poster6 from "/src/assets/posters/poster6.jpg";
+import Poster1 from "../assets/posters/poster1.png";
+import Poster2 from "../assets/posters/poster2.png";
+import Poster3 from "../assets/posters/poster3.jpg";
+import Poster4 from "../assets/posters/poster4.jpg";
+import Poster5 from "../assets/posters/poster5.jpg";
+import Poster6 from "../assets/posters/poster6.jpg";
 
 const Projects = () => {
   const [visible, setVisible] = useState(false);
