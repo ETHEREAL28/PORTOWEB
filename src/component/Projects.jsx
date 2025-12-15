@@ -16,7 +16,7 @@ import Poster12 from "../assets/posters/idulfitri.png";
 import Poster13 from "../assets/posters/isramiraj.png";
 
 
-import Portoweb from "../assets/images/edwinportoweb.png";
+import Portoweb from "../assets/images/edwinportowebupdate.png";
 import Terserahmart from "../assets/images/terserahmart.png";
 import Coffeshop from "../assets/images/coffeshop.png";
 
