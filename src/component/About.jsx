@@ -24,7 +24,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="h-screen bg-slate-900 relative overflow-hidden flex items-center justify-center py-20"
+      className="min-h-screen bg-slate-900 relative overflow-hidden flex items-center justify-center py-20"
       style={{ backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}
     >
 
