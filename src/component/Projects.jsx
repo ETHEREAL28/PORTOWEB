@@ -15,7 +15,6 @@ import Poster11 from "../assets/posters/stikerrdk.png";
 import Poster12 from "../assets/posters/idulfitri.png";
 import Poster13 from "../assets/posters/isramiraj.png";
 
-
 import Portoweb from "../assets/images/edwinportowebupdate.png";
 import Terserahmart from "../assets/images/terserahmart.png";
 import Coffeshop from "../assets/images/coffeshop.png";
@@ -27,9 +26,12 @@ const Projects = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
+        if (entry.isIntersecting) {
+            setVisible(true);
+            observer.disconnect();
+        }
       },
-      { threshold: 0.2 }
+      { threshold: 0 } 
     );
 
     const element = document.getElementById("projects");
@@ -40,22 +42,19 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen bg-slate-50 py-20">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8"> 
 
-        {/* ===== TITLE ===== */}
-        <h2 className="text-5xl font-bold mb-16 text-center text-slate-800">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-slate-800">
           My Projects
         </h2>
 
-        {/* ===== WEB PROJECTS ===== */}
         <div className="mb-24">
-          <h3 className="text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
+          <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
             <Code className="w-8 h-8 text-blue-600" />
             Web Development
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
             <div
               className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -75,7 +74,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Card 2 */}
             <div
               className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -93,7 +91,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Card 3 */}
             <div
               className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -113,15 +110,13 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* ===== DESIGN POSTERS ===== */}
         <div>
-          <h3 className="text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
+          <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 flex items-center gap-3">
             <Palette className="w-8 h-8 text-blue-600" />
             Posters & Visual Designs
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Poster 1 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -136,7 +131,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 2 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -151,7 +145,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 3 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -166,7 +159,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 4 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -181,7 +173,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 5 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -196,7 +187,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 6 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -211,7 +201,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Poster 7 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -226,7 +215,6 @@ const Projects = () => {
               </div>
             </div>
 
-              {/* Poster 8 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -241,7 +229,6 @@ const Projects = () => {
               </div>
             </div>
 
-              {/* Poster 9 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -256,8 +243,6 @@ const Projects = () => {
               </div>
             </div>
 
-
-              {/* Poster 10 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -272,7 +257,6 @@ const Projects = () => {
               </div>
             </div>
 
-              {/* Poster 11 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -286,7 +270,7 @@ const Projects = () => {
                 <p className="text-sm text-slate-500">Stiker Ramadhan Di Kampus UTDI 2025</p>
               </div>
             </div>
-              {/* Poster 12 */}
+
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -301,7 +285,6 @@ const Projects = () => {
               </div>
             </div>
 
-              {/* Poster 13 */}
             <div
               className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -320,16 +303,15 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* ===== MODAL PREVIEW ===== */}
       {selectedPoster && (
         <div
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-999"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[999] p-4"
           onClick={() => setSelectedPoster(null)}
         >
           <img
             src={selectedPoster}
             alt="Poster Full"
-            className="max-w-screen max-h-screen w-auto h-auto object-contain"
+            className="max-w-full max-h-full w-auto h-auto object-contain rounded-md"
           />
         </div>
       )}
