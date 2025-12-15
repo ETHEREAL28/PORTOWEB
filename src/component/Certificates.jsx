@@ -8,6 +8,8 @@ import cert4 from "../assets/sertifikat/sertifikat_myskill2.jpg";
 import cert5 from "../assets/sertifikat/sertifikat_myskill3.jpg";
 import cert6 from "../assets/sertifikat/sertifikat_myskill4.jpg";
 import cert7 from "../assets/sertifikat/sertifikat_myskill5.jpg";
+import cert8 from "../assets/sertifikat/sertifkulum.png";
+import cert9 from "../assets/sertifikat/sertifmaroonday.png";
 
 const Certificates = () => {
   const [visible, setVisible] = useState(false);
@@ -67,6 +69,18 @@ const Certificates = () => {
       title: "INTERNET INTRODUCTION",
       issuer: "MySkill",
       year: "2025",
+    },
+    {
+      image: cert8,
+      title: "Panitia Kuliah Umum Himaforka 2023(Divisi PDD)",
+      issuer: "Himaforka",
+      year: "2023",
+    },
+    {
+      image: cert9,
+      title: "Panitia Maroonday 2023(Divisi PDD)",
+      issuer: "Himaforka",
+      year: "2024",
     },
   ];
 
