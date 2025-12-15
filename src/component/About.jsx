@@ -69,7 +69,7 @@ const About = () => {
           banner, dan konten media sosial menggunakan Figma dan Canva.
           
         </p>
-            <div className="items-center flex gap-6 text-white">
+            <div className="relative z-50 flex items-center justify-center gap-6 text-white">
                 <a
                   href="https://github.com/ETHEREAL28"
                   target="_blank"
