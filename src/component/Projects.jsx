@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Code, Palette, ExternalLink } from "lucide-react";
 
-import poster1 from "../assets/posters/poster1.png";
+import Poster1 from "../assets/posters/poster1.png";
 import Poster2 from "../assets/posters/poster2.png";
 import Poster3 from "../assets/posters/poster3.jpg";
 import Poster4 from "../assets/posters/poster4.jpg";
@@ -62,7 +62,7 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: "0ms" }}
             >
-              <div className="w-full h-48 bg-linear-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
                 <img src={Portoweb} alt="Project 1" className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl font-bold text-slate-800 mb-2">Portfolio Website</h4>
@@ -82,7 +82,7 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: "100ms" }}
             >
-              <div className="w-full h-48 bg-linear-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
                 <img src={Terserahmart} alt="Project 2" className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl font-bold text-slate-800 mb-2">E-Commerce Platform Terserahmart</h4>
@@ -100,7 +100,7 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: "200ms" }}
             >
-              <div className="w-full h-48 bg-linear-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
                 <img src={Coffeshop} alt="Project 3" className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl font-bold text-slate-800 mb-2">Coffe Shop Website</h4>
@@ -128,8 +128,8 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: "300ms" }}
             >
-              <div className="w-full h-80 overflow-hidden cursor-pointer" onClick={() => setSelectedPoster(poster1)}>
-                <img src={poster1} alt="Poster 1" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+              <div className="w-full h-80 overflow-hidden cursor-pointer" onClick={() => setSelectedPoster(Poster1)}>
+                <img src={Poster1} alt="Poster 1" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="p-4">
                 <p className="text-sm text-slate-500">Poster hari pahlawan nasional 2025</p>
