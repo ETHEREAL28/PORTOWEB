@@ -20,7 +20,7 @@ const Skill = () => {
   const track = [...skills, ...skills]; // duplicate for infinite loop
 
   return (
-    <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="skills" className="py-20 bg-slate-900 text-white relative overflow-hidden">
 
       {/* Inject keyframes tanpa tailwind.config */}
       <style>

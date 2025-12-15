@@ -8,6 +8,8 @@ import Poster4 from "../assets/posters/poster4.jpg";
 import Poster5 from "../assets/posters/poster5.jpg";
 import Poster6 from "../assets/posters/poster6.jpg";
 
+import Portoweb from "../assets/images/edwinportoweb.png";
+
 const Projects = () => {
   const [visible, setVisible] = useState(false);
   const [selectedPoster, setSelectedPoster] = useState(null);
@@ -51,13 +53,15 @@ const Projects = () => {
               style={{ transitionDelay: "0ms" }}
             >
               <div className="w-full h-48 bg-linear-to-br from-slate-700 to-slate-900 rounded-lg mb-4 flex items-center justify-center">
-                <Code className="w-16 h-16 text-blue-400" />
+                <img src={Portoweb} alt="Project 1" className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl font-bold text-slate-800 mb-2">Portfolio Website</h4>
               <p className="text-slate-600 mb-3">Personal portfolio website built with modern UI principles.</p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-500">React, Tailwind CSS</span>
-                <ExternalLink className="w-5 h-5 text-blue-600 cursor-pointer hover:text-blue-800" />
+                <a href="https://edwinportoweb-lyart.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-5 h-5 text-blue-600 cursor-pointer hover:text-blue-800" />
+                </a>
               </div>
             </div>
 

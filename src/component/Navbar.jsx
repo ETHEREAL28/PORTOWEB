@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center p-4">
         {/* Logo */}
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 mx-4">
-          Edwin Porto
+          Edwin Winanda
         </h1>
 
         {/* Desktop Menu */}
