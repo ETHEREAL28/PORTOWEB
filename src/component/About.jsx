@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
-import foto from '../assets/images/Foto.jpg';
+import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
+import Lanyard from '../assets/images/lanyard.png';
+import Kertas1 from '../assets/images/paper1.png';
+import Kertas2 from '../assets/images/paperpin.png';
+import Background from '../assets/images/texture_kertas.png';
 
 const About = () => {
   const [visible, setVisible] = useState(false);
@@ -13,74 +16,186 @@ const About = () => {
       { threshold: 0.3 }
     );
 
-    const element = document.getElementById('about');
-    if (element) observer.observe(element);
+    const el = document.getElementById('about');
+    if (el) observer.observe(el);
 
     return () => observer.disconnect();
   }, []);
 
+  const titleStyle = "text-3xl font-extrabold text-[#004A7F]";
+  const bodyStyle = "text-base text-neutral-800 font-medium";
+
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center bg-slate-50 relative overflow-hidden py-20"
+      className="h-screen bg-slate-900 relative overflow-hidden flex items-center justify-center py-20" style={{ backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        {/* TEXT */}
-        <div
-          className={`transition-all duration-1000 ${
-            visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-          }`}
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-slate-800">
-            About Me
-          </h2>
+      <div className="pointer-events-none absolute top-0 left-0 w-full h-30 bg-gradient-to-b from-slate-900/90 to-transparent z-40" />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-900/90 to-transparent z-40" />
 
-          <p className="text-base sm:text-lg leading-relaxed text-slate-600 mb-6">
-            Nama saya Edwin Winanda, mahasiswa Informatika yang memiliki ketertarikan
-            pada pengembangan web dan design. Saya terbiasa mengerjakan proyek
-            berbasis front-end dengan fokus pada tampilan yang rapi, fungsional,
-            dan nyaman digunakan. Saya menikmati proses mengubah ide desain menjadi
-            antarmuka nyata menggunakan React, Tailwind CSS, dan teknologi web modern
-            lainnya.
-          </p>
+      {/* ================= STYLE ANIMASI ================= */}
+      <style>
+        {`
+          @keyframes swingOnce {
+            0%   { transform: rotate(0deg); }
+            25%  { transform: rotate(6deg); }
+            50%  { transform: rotate(-5deg); }
+            75%  { transform: rotate(3deg); }
+            100% { transform: rotate(0deg); }
+          }
 
-          <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-            Walau keterampilan saya berfokus pada front-end, saya juga memiliki
-            pemahaman dasar tentang back-end dan database. Saya bersemangat untuk
-            terus belajar dan berkembang di bidang pengembangan web.
-          </p>
+          @keyframes paperOnce {
+            0%   { transform: rotate(8deg) translateY(-10px); }
+            60%  { transform: rotate(2deg) translateY(6px); }
+            100% { transform: rotate(3deg) translateY(0); }
+          }
+        `}
+      </style>
 
-          <div className="flex gap-4 mt-8 justify-center lg:justify-start lg:pl-20">
-            <a href="https://github.com/ETHEREAL28" className="p-3 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="https://www.linkedin.com/in/edwin-winanda-b757bb356" className="p-3 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300">
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a href="mailto:edwinwinanda28@gmail.com" className="p-3 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300">
-              <Mail className="w-6 h-6" />
-            </a>
-            <a href="https://www.instagram.com/edwin.win__" className="p-3 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300">
-              <Instagram className="w-6 h-6" />
-            </a>
+      <div className="relative w-full max-w-6xl h-[700px] ml-25 mr-auto scale-90 md:scale-100">
+
+        {/* ================= KERTAS PENGALAMAN ================= */}
+        <div className="absolute -top-115 -right-50 w-1/3 h-[90%] z-30">
+          <div
+            className={`
+              w-full h-full transition-opacity duration-500
+              ${visible ? 'animate-[paperOnce_1.6s_ease-out_forwards]' : 'opacity-0'}
+            `}
+            style={{ transformOrigin: 'left top' }}
+          >
+            <img
+              src={Kertas2}
+              alt="Kertas Pengalaman Organisasi"
+              className="w-[250%] h-[250%] object-contain"
+            />
+
+            <p className={`${titleStyle} absolute top-[84%] left-[28%] right-[5%]`}>
+              Pengalaman Organisasi
+            </p>
+
+            <div className="absolute top-[100%] left-[15%] right-[10%]">
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <h4 className="font-semibold text-gray-800">
+                    Pengurus Harian HIMAFORKA <br /> Skill Development Division
+                  </h4>
+                  <p className="text-gray-600">
+                    Mengelola website dan media sosial HIMAFORKA serta berkontribusi
+                    pada pengembangan skill anggota melalui konten digital.
+                  </p>
+                </li>
+
+                <li>
+                  <h4 className="font-semibold text-gray-800">
+                    Panitia Maroon Day HIMAFORKA 2024 <br /> Divisi PDD
+                  </h4>
+                  <p className="text-gray-600">
+                    Mendesain poster kegiatan dan dokumentasi acara.
+                  </p>
+                </li>
+
+                <li>
+                  <h4 className="font-semibold text-gray-800">
+                    Panitia Latihan Alam Taekwondo 2023 <br /> Divisi PDD
+                  </h4>
+                  <p className="text-gray-600">
+                    Mendesain banner kegiatan dan dokumentasi.
+                  </p>
+                </li>
+
+                <li>
+                  <h4 className="font-semibold text-gray-800">
+                    Panitia Ramadan Kampus UTDI (WAMIKA) <br /> Divisi PDD
+                  </h4>
+                  <p className="text-gray-600">
+                    Mendesain banner kegiatan dan dokumentasi.
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* IMAGE */}
-        <div
-          className={`transition-all duration-1000 delay-300 ${
-            visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-          }`}
-        >
-          <div className="relative flex justify-center lg:justify-start lg:pl-20">
-            <div className="w-72 sm:w-80 lg:w-120 h-80 sm:h-96 bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl flex items-center justify-center shadow-2xl">
+        {/* ================= KERTAS ABOUT + LANYARD ================= */}
+        <div className="absolute top-0 left-0 w-full h-full z-20 -rotate-2">
+          <img
+            src={Kertas1}
+            alt="Kertas Tentang Saya"
+            className="w-full h-full object-contain"
+          />
+
+          <div className="absolute top-0 left-0 p-10 pt-16 w-full h-full">
+
+            {/* LANYARD (ANIMASI SEKALI) */}
+            <div className="absolute -top-18 left-17">
               <img
-                src={foto}
-                alt="Edwin Porto"
-                className="w-64 sm:w-72 lg:w-90 h-80 lg:h-120 object-cover rounded-2xl"
+                src={Lanyard}
+                alt="Lanyard ID Card"
+                className={`
+                  w-80 h-auto object-contain origin-top
+                  ${visible ? 'animate-[swingOnce_2s_ease-out_forwards]' : ''}
+                `}
               />
             </div>
+
+            <h1 className={`${titleStyle} absolute top-[18%] left-[30%]`}>
+              About Me
+            </h1>
+
+            <p
+              className={`${bodyStyle} absolute top-[25%] left-[30%] max-w-[50%]`}
+              style={{ lineHeight: '1.6' }}
+            >
+              Halo! saya Edwin Winanda, mahasiswa Informatika yang memiliki ketertarikan
+              pada pengembangan web dan design. Saya terbiasa mengerjakan proyek
+              front-end dengan fokus pada tampilan yang rapi, fungsional, dan nyaman
+              digunakan menggunakan React dan Tailwind CSS. Saya juga memiliki pengalaman
+              dalam membuat desain grafis untuk berbagai keperluan seperti UI/UX, poster,
+              banner, dan konten media sosial menggunakan Figma dan Canva.
+              <br /><br />
+              Meskipun keterampilan saya berfokus pada front-end, saya juga memiliki
+              pemahaman dasar tentang back-end dan database, serta bersemangat untuk
+              terus belajar dan berkembang.
+            </p>
+
+            {/* ===== SOCIAL ICONS (DALAM KERTAS) ===== */}
+            <div className="absolute bottom-14 left-[30%] top-[68%]  flex gap-6 text-neutral-700">
+              <a
+                href="https://github.com/ETHEREAL28"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-black transition"
+              >
+                <Github size={28} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/edwin.win__?igsh=MWxzMDF5MWJxZWYwcA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-600 transition"
+              >
+                <Instagram size={28} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/edwin-winanda-b757bb356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-700 transition"
+              >
+                <Linkedin size={28} />
+              </a>
+
+              <a
+                href="mailto:edwinwinanda28@gmail.com"
+                className="hover:text-red-600 transition"
+              >
+                <Mail size={28} />
+              </a>
+            </div>
+
           </div>
         </div>
 
