@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-8 text-center">
 
         <p className="text-lg">
-          &copy; 2024 <span className="text-blue-400 font-semibold">Edwin Porto</span>. All rights reserved.
+          &copy; 2025 <span className="text-blue-400 font-semibold">Edwin Winanda</span>. All rights reserved.
         </p>
 
-        <div className="flex gap-6 justify-center mt-4">
+        {/* <div className="flex gap-6 justify-center mt-4">
           <a href="#" className="hover:text-blue-400 transition-colors">
             <Github className="w-5 h-5" />
           </a>
@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="#" className="hover:text-blue-400 transition-colors">
             <Mail className="w-5 h-5" />
           </a>
-        </div>
+        </div> */}
 
       </div>
     </footer>
