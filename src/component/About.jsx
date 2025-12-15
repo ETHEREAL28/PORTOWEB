@@ -10,15 +10,11 @@ const About = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
-      },
+      ([entry]) => entry.isIntersecting && setVisible(true),
       { threshold: 0.3 }
     );
-
     const el = document.getElementById('about');
     if (el) observer.observe(el);
-
     return () => observer.disconnect();
   }, []);
 
@@ -28,34 +24,76 @@ const About = () => {
   return (
     <section
       id="about"
-      className="h-screen bg-slate-900 relative overflow-hidden flex items-center justify-center py-20" style={{ backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}
+      className="h-screen bg-slate-900 relative overflow-hidden flex items-center justify-center py-20"
+      style={{ backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}
     >
 
-      <div className="pointer-events-none absolute top-0 left-0 w-full h-30 bg-gradient-to-b from-slate-900/90 to-transparent z-40" />
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-900/90 to-transparent z-40" />
+    <div className="pointer-events-none absolute top-0 left-0 w-full h-30 bg-gradient-to-b from-slate-900/90 to-transparent z-40" />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-30 bg-gradient-to-t from-slate-900/90 to-transparent z-40" />
 
-      {/* ================= STYLE ANIMASI ================= */}
       <style>
         {`
           @keyframes swingOnce {
-            0%   { transform: rotate(0deg); }
-            25%  { transform: rotate(6deg); }
-            50%  { transform: rotate(-5deg); }
-            75%  { transform: rotate(3deg); }
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(6deg); }
+            50% { transform: rotate(-5deg); }
+            75% { transform: rotate(3deg); }
             100% { transform: rotate(0deg); }
           }
 
           @keyframes paperOnce {
-            0%   { transform: rotate(8deg) translateY(-10px); }
-            60%  { transform: rotate(2deg) translateY(6px); }
+            0% { transform: rotate(8deg) translateY(-10px); }
+            60% { transform: rotate(2deg) translateY(6px); }
             100% { transform: rotate(3deg) translateY(0); }
           }
         `}
       </style>
 
-      <div className="relative w-full max-w-6xl h-[700px] ml-25 mr-auto scale-90 md:scale-100">
+      {/* MOBILE */}
+      <div className="md:hidden w-full flex flex-col items-center pt-0 px-6">
+        <img
+          src={Lanyard}
+          alt="Lanyard"
+          className={`
+            w-70 mb-8 -top-10 origin-top
+            ${visible ? 'animate-[swingOnce_2s_ease-out_forwards]' : ''}
+          `}
+        />
 
-        {/* ================= KERTAS PENGALAMAN ================= */}
+         <h1
+          className={`
+            text-3xl font-extrabold text-[#4db5ff]
+            static text-center mb-4
+            md:relative md:top-[20%] md:left-[30%] md:text-left
+          `}>
+            About Me
+          </h1>
+
+<p
+  className={`
+    text-base font-medium text-white leading-relaxed
+    static text-center px-4 max-w-full
+    md:absolute md:top-[25%] md:left-[30%] md:max-w-[50%] md:px-0 md:text-left
+  `}
+>
+  Halo! saya Edwin Winanda, mahasiswa Informatika yang memiliki ketertarikan
+  pada pengembangan web dan design. Saya terbiasa mengerjakan proyek
+  front-end dengan fokus pada tampilan yang rapi, fungsional, dan nyaman
+  digunakan menggunakan React dan Tailwind CSS. Saya juga memiliki pengalaman
+  dalam membuat desain grafis untuk berbagai keperluan seperti UI/UX, poster,
+  banner, dan konten media sosial menggunakan Figma dan Canva.
+  <br /><br />
+  Meskipun keterampilan saya berfokus pada front-end, saya juga memiliki
+  pemahaman dasar tentang back-end dan database, serta bersemangat untuk
+  terus belajar dan berkembang.
+</p>
+
+
+
+      </div>
+
+      {/* DESKTOP */}
+      <div className="hidden md:block relative w-full max-w-6xl h-[700px] ml-25 mr-auto scale-90 md:scale-100">
         <div className="absolute -top-115 -right-50 w-1/3 h-[90%] z-30">
           <div
             className={`
@@ -64,11 +102,7 @@ const About = () => {
             `}
             style={{ transformOrigin: 'left top' }}
           >
-            <img
-              src={Kertas2}
-              alt="Kertas Pengalaman Organisasi"
-              className="w-[250%] h-[250%] object-contain"
-            />
+            <img src={Kertas2} className="w-[250%] h-[250%] object-contain" />
 
             <p className={`${titleStyle} absolute top-[84%] left-[28%] right-[5%]`}>
               Pengalaman Organisasi
@@ -117,23 +151,15 @@ const About = () => {
           </div>
         </div>
 
-        {/* ================= KERTAS ABOUT + LANYARD ================= */}
         <div className="absolute top-0 left-0 w-full h-full z-20 -rotate-2">
-          <img
-            src={Kertas1}
-            alt="Kertas Tentang Saya"
-            className="w-full h-full object-contain"
-          />
+          <img src={Kertas1} className="w-full h-full object-contain" />
 
           <div className="absolute top-0 left-0 p-10 pt-16 w-full h-full">
-
-            {/* LANYARD (ANIMASI SEKALI) */}
             <div className="absolute -top-18 left-17">
               <img
                 src={Lanyard}
-                alt="Lanyard ID Card"
                 className={`
-                  w-80 h-auto object-contain origin-top
+                  w-80 origin-top
                   ${visible ? 'animate-[swingOnce_2s_ease-out_forwards]' : ''}
                 `}
               />
@@ -159,46 +185,14 @@ const About = () => {
               terus belajar dan berkembang.
             </p>
 
-            {/* ===== SOCIAL ICONS (DALAM KERTAS) ===== */}
-            <div className="absolute bottom-14 left-[30%] top-[68%]  flex gap-6 text-neutral-700">
-              <a
-                href="https://github.com/ETHEREAL28"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-black transition"
-              >
-                <Github size={28} />
-              </a>
-
-              <a
-                href="https://www.instagram.com/edwin.win__?igsh=MWxzMDF5MWJxZWYwcA=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-600 transition"
-              >
-                <Instagram size={28} />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/edwin-winanda-b757bb356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-700 transition"
-              >
-                <Linkedin size={28} />
-              </a>
-
-              <a
-                href="mailto:edwinwinanda28@gmail.com"
-                className="hover:text-red-600 transition"
-              >
-                <Mail size={28} />
-              </a>
+            <div className="absolute bottom-14 left-[30%] top-[68%] flex gap-6 text-neutral-700">
+              <Github size={28} />
+              <Instagram size={28} />
+              <Linkedin size={28} />
+              <Mail size={28} />
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

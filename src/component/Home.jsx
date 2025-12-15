@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-20 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-20 relative overflow-hidden"
     >
 
-<div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-900/90 to-transparent z-40" />
+<div className="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-linear-to-t from-slate-900/90 to-transparent z-40" />
       
       {/* Background Accent */}
       <div className="absolute inset-0 opacity-10">
